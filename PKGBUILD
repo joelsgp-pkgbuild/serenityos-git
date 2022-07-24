@@ -29,8 +29,18 @@ md5sums=('SKIP')
 
 build() {
     cd "$srcdir/${pkgname%-git}"
+
     Meta/serenity.sh rebuild-toolchain
+    # SERENITY_SOURCE_DIR="$(pwd)"
+    # TARGET=i686
+    # cd "$SERENITY_SOURCE_DIR/Toolchain" && ARCH="$TARGET" ./BuildIt.sh
+    # cd "$SERENITY_SOURCE_DIR"
+
     Meta/serenity.sh build
+    # CMAKE_ARGS="-DSERENITY_TOOLCHAIN=GNU"
+    # SUPER_BUILD_DIR="${SERENITY_SOURCE_DIR}/Build/superbuild-i686"
+    # cmake -GNinja "${CMAKE_ARGS[@]}" -S "$SERENITY_SOURCE_DIR/Meta/CMake/Superbuild" -B "$SUPER_BUILD_DIR"
+    # cmake --build "$SUPER_BUILD_DIR"
 }
 
 check() {
