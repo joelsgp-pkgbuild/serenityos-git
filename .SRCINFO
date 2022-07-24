@@ -21,10 +21,10 @@ pkgbase = serenityos-git
 	makedepends = rsync
 	makedepends = unzip
 	makedepends = texinfo
-	optdepends = fuse2fs: building images with root support
+	optdepends = fuse2fs: building images without root support
 	provides = serenityos
 	conflicts = serenityos
-	source = serenity::git+https://github.com/SerenityOS/serenity.git
+	source = serenityos::git+https://github.com/SerenityOS/serenity.git
 	md5sums = SKIP
 
 pkgname = serenityos-git
