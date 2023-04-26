@@ -2,11 +2,10 @@
 pkgname=serenityos-git
 pkgver=1.0_dev
 pkgrel=1
-pkgdesc="The Serenity Operating System 🐞"
+pkgdesc="The Serenity Operating System 🐞 (qemu image)"
 arch=('any')
 url="https://serenityos.org/"
 license=('BSD')
-groups=()
 # https://github.com/SerenityOS/serenity/blob/master/Documentation/BuildInstructions.md#arch-linux--manjaro
 # todo some may need to be moved around between depends and makedepends
 # by someone with more knowledge of serenity
@@ -18,15 +17,16 @@ makedepends=('git' 'gcc11'
 optdepends=('fuse2fs: building images without root support')
 provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
-replaces=()
-backup=()
-options=()
-install=
 # todo desktop entry
-source=('serenityos::git+https://github.com/SerenityOS/serenity.git')
+source=("${pkgname%-git}::git+https://github.com/SerenityOS/serenity.git")
 noextract=()
 md5sums=('SKIP')
 
+pkgver() {
+    # todo
+}
+
+# the build system is weird - do bash -x Meta/serenity.sh run to see the actual process
 build() {
     cd "$srcdir/${pkgname%-git}"
 
